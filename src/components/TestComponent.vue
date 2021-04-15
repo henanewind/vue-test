@@ -51,7 +51,7 @@ export default {
     return {
       message: '我的第一个Vue应用...',
       // checked: [], // 复选框 可以多选
-      checked: 'java',// 单选 radio 一次只能选一个值
+      checked: 'java', // 单选 radio 一次只能选一个值
       picked: false,
       value: 123,
       toggle: false,
