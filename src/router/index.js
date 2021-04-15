@@ -6,6 +6,7 @@ import TestComponent from '@/components/TestComponent'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history', // 路由默认采用 hash 模式，切换为history 消除url后面的 #
   routes: [
     {
       path: '/',
@@ -14,7 +15,7 @@ export default new Router({
     },
     {
       path: '/test',
-      name: 'TestComponent',
+      name: 'demo',
       component: TestComponent
     }
   ]
