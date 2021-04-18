@@ -12,17 +12,26 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: HelloWorld,
+      meta: {
+        title: 'HelloWorld'
+      }
     },
     {
       path: '/test',
       name: 'demo',
-      component: TestComponent
+      component: TestComponent,
+      meta: {
+        title: 'TestComponent'
+      }
     },
     {
       path: '/count',
       name: 'CountComponent',
-      component: CountComponent
+      component: CountComponent,
+      meta: {
+        title: 'CountComponent'
+      }
     }
   ]
 })

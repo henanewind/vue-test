@@ -54,11 +54,15 @@ export default {
     ]),
     ...mapMutations({
       // 把 addCount 映射为 this.$store.commit('ADD', n)
-      addCount: 'ADD'
+      // addCount: 'ADD'
+      // 把方法this.reductionCount() 映射为 this.$store.commit('REDUCTION')
+      reductionCount: 'REDUCTION'
     }),
     ...mapActions({
+      // 把 addCount 映射为 this.$store.dispatch('addFun', n)
+      addCount: 'addFun'
       // 把方法this.reductionCount() 映射为 this.$store.dispatch('reductionFun')
-      reductionCount: 'reductionFun'
+      // reductionCount: 'reductionFun'
     }),
     getData () {
       // let data = login()

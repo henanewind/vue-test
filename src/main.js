@@ -13,6 +13,15 @@ Vue.use(Element, {
 
 Vue.config.productionTip = false
 
+router.beforeEach((to, from, next) => {
+  console.log('from:' + from.fullPath)
+  console.log('to:' + to.fullPath)
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
