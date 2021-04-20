@@ -3,6 +3,7 @@
     <input type='text' v-model.trim='message'>
     <p>{{ message }}</p>
     <br>
+    <router-link to="profile" append>hello</router-link>
 <!--    实现 多选-->
 <!--    <input type="checkbox" id="html" v-model="checked" value="html">-->
 <!--    <label for="html">HTML</label>-->
@@ -41,6 +42,7 @@
       <option :value="{number: 123}">123</option>
     </select>
     <p>{{ selected.number }}</p>
+    <router-view/>
   </div>
 </template>
 
