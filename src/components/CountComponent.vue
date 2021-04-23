@@ -13,6 +13,8 @@
     <button @click="reductionFun">-1</button>
     <br>
     <button @click="getData">getData</button>
+    <br>
+    <button @click="getQuest">getQuestion</button>
   </div>
 </template>
 
@@ -82,6 +84,17 @@ export default {
         console.log(this.$store.state.appha.contents)
         console.log('-----------------')
         console.log(this.$store.state.appha.getList)
+      })
+    },
+    getQuest () {
+      this.$store.dispatch('appha/GetQuest').then(response => {
+        console.log(response.rows)
+        console.log('-----------------')
+        console.log(this.$store.state.appha.question)
+        let strFaults = this.$store.getters.getFaults
+        console.log(strFaults)
+        let jsonFaults = JSON.parse(strFaults)
+        console.log(jsonFaults)
       })
     }
   }
