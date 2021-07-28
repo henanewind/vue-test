@@ -8,6 +8,10 @@ import Container from '../components/ContainerComponent'
 import ElementComponent from '@//components/ElementComponent'
 import scrollbar from '@//components/scrollbar'
 import SlotComponent from '@//components/SlotComponent'
+import Navigate from '../components/Navigate'
+import InnterComponent from '@/components/InnterComponent'
+import User from '@/components/User'
+import UserPosts from '../components/UserPosts'
 
 Vue.use(Router)
 
@@ -16,6 +20,21 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Navigate',
+      component: Navigate
+    },
+    {
+      path: '/user/:id',
+      component: User,
+      children: [
+        {
+          path: 'profile',
+          component: UserPosts
+        }
+      ]
+    },
+    {
+      path: '/hello',
       name: 'HelloWorld',
       component: HelloWorld,
       meta: {
@@ -28,7 +47,14 @@ export default new Router({
       component: TestComponent,
       meta: {
         title: 'TestComponent'
-      }
+      },
+      children: [
+        {
+          path: 'profile',
+          name: 'InnterComponent',
+          component: InnterComponent
+        }
+      ]
     },
     {
       path: '/count',

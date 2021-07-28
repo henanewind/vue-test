@@ -6,3 +6,10 @@ export function login () {
     method: 'get'
   })
 }
+
+export function getQuestion () {
+  return request({
+    url: '/test/question/list',
+    method: 'get'
+  })
+}
