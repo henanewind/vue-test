@@ -9,18 +9,31 @@
     </todo-list>
     <hr>
     <todo-list :todos="filteredTodos">
-      <!--v-slot:default 和 v-slot 等价-->
+      <!--v-slot:default 和 v-slot 等价  { todo: data } 结构后进行重新命名为 data-->
       <template v-slot:heihua="{ todo: data }">
         <span v-if="data.isComplete">✓</span>
         {{ data.text }} --
       </template>
-      <template #default="{slotProps}">
-        {{ slotProps.id }}:{{ slotProps.text }}
+<!--      <template #default="{todoItem}">-->
+<!--        {{ todoItem.id }}:{{ todoItem.text }}-->
+<!--      </template>-->
+     <!-- slotProps = { todoItem } -->
+      <template #default="slotProps">
+        {{ slotProps.todoItem.id }}:{{ slotProps.todoItem.text }}
       </template>
 <!--      <template v-slot="{ user = { firstName: 'Guest' } }">-->
 <!--        {{ user.firstName }}-->
 <!--      </template>-->
     </todo-list>
+    <br>
+    <child-componet>
+      <template v-slot:header="{userData}">
+        {{ userData.firstName }}
+      </template>
+      <template v-slot:footer="slotProps">
+        {{ slotProps.hobbyData.fruit }}
+      </template>
+    </child-componet>
     <br>
     <submit-button></submit-button>
     <br>
@@ -59,7 +72,7 @@
 <script>
 
 let todoList = {
-  template: '<ol><li v-for="item in todos" :key="item.id"><slot name="heihua" :todo="item">后备内容：{{item.text}} -- </slot><slot v-bind:slotProps="item"></slot></li></ol>',
+  template: '<ol><li v-for="item in todos" :key="item.id"><slot name="heihua" :todo="item">后备内容：{{item.text}} -- </slot><slot v-bind:todoItem="item"></slot></li></ol>',
   props: ['todos']
 }
 
@@ -85,12 +98,39 @@ let baseLayout = {
   `
 }
 
+let childComponet = {
+  template: `
+  <div>
+    <span>
+      <slot v-bind:userData="user" name="header">
+        {{ user.firstName }}
+      </slot>
+      <slot v-bind:hobbyData="hobby" name="footer">
+        {{ hobby.fruit }}
+      </slot>
+    </span>
+  </div>`,
+  data () {
+    return {
+      user: {
+        firstName: 'gerace',
+        lastName: 'haLi'
+      },
+      hobby: {
+        fruit: 'apple',
+        color: 'blue'
+      }
+    }
+  }
+}
+
 export default {
   name: 'SlotComponent',
   components: {
     'todo-list': todoList,
     'submit-button': submitButton,
-    'base-layout': baseLayout
+    'base-layout': baseLayout,
+    'child-componet': childComponet
   },
   data () {
     return {
