@@ -86,7 +86,10 @@
       <li><router-link to="/element">Element</router-link></li>
       <li><router-link to="/scrollbar">滚动条</router-link></li>
       <li><router-link to="/slot">插槽</router-link></li>
-      <li>5</li>
+      <li><router-link to="/icon">图标</router-link></li>
+      <li><router-link to="/selects">选择器</router-link></li>
+      <li><router-link to="/cascader">级联选择器</router-link></li>
+      <li><router-link to="/menu">自定义菜单</router-link></li>
     </ul->
   </div>
 </template>

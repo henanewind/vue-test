@@ -2,24 +2,25 @@
   <div>
     <todo-list :todos="filteredTodos">
       <template v-slot:heihua="{ todo }">
-        父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。
-        <span v-if="todo.isComplete">✓</span>
-        {{ todo.text }}
+<!--        父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。-->
+        <span v-if="todo.isComplete">✓</span> {{ todo.text }}
       </template>
     </todo-list>
     <hr>
     <todo-list :todos="filteredTodos">
       <!--v-slot:default 和 v-slot 等价  { todo: data } 结构后进行重新命名为 data-->
       <template v-slot:heihua="{ todo: data }">
-        <span v-if="data.isComplete">✓</span>
-        {{ data.text }} --
+        <span v-if="data.isComplete">✓</span> {{ data.text }} --
       </template>
 <!--      <template #default="{todoItem}">-->
 <!--        {{ todoItem.id }}:{{ todoItem.text }}-->
 <!--      </template>-->
      <!-- slotProps = { todoItem } -->
-      <template #default="slotProps">
-        {{ slotProps.todoItem.id }}:{{ slotProps.todoItem.text }}
+<!--      <template #default="slotProps">-->
+<!--        {{ slotProps.todoItem.id }}:{{ slotProps.todoItem.text }}-->
+<!--      </template>-->
+      <template v-slot="slotProps">
+        》》》方法3 ：{{ slotProps.todoItem.text }}
       </template>
 <!--      <template v-slot="{ user = { firstName: 'Guest' } }">-->
 <!--        {{ user.firstName }}-->
@@ -72,7 +73,12 @@
 <script>
 
 let todoList = {
-  template: '<ol><li v-for="item in todos" :key="item.id"><slot name="heihua" :todo="item">后备内容：{{item.text}} -- </slot><slot v-bind:todoItem="item"></slot></li></ol>',
+  template: `<ol>
+                <li v-for="item in todos" :key="item.id">
+                  <slot name="heihua" :todo="item">后备内容：{{item.text}} -- </slot>
+                  <slot v-bind:todoItem="item">+++++</slot>
+                </li>
+              </ol>`,
   props: ['todos']
 }
 

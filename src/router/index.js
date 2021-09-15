@@ -12,6 +12,10 @@ import Navigate from '../components/Navigate'
 import InnterComponent from '@/components/InnterComponent'
 import User from '@/components/User'
 import UserPosts from '../components/UserPosts'
+import Icons from '../components/Icons'
+import selects from '../components/selects'
+import cascader from '../components/cascader'
+import MyMenu from '@/components/MyMenu'
 
 Vue.use(Router)
 
@@ -102,6 +106,38 @@ export default new Router({
       component: SlotComponent,
       meta: {
         title: 'slot'
+      }
+    },
+    {
+      path: '/icon',
+      name: 'Icons',
+      component: Icons,
+      meta: {
+        title: 'icon'
+      }
+    },
+    {
+      path: '/selects',
+      name: 'selects',
+      component: selects,
+      meta: {
+        title: 'selects'
+      }
+    },
+    {
+      path: '/cascader',
+      name: 'cascader',
+      component: cascader,
+      meta: {
+        title: cascader
+      }
+    },
+    {
+      path: '/menu',
+      name: 'MyMenu',
+      component: MyMenu,
+      meta: {
+        title: MyMenu
       }
     }
   ]
