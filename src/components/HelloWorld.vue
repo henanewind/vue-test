@@ -80,7 +80,7 @@
         </a>
       </li>
     </ul>
-    <ul->
+    <ul>
       <li><router-link to="/container">容器</router-link></li>
       <li><router-link to="/select">下拉选择</router-link></li>
       <li><router-link to="/element">Element</router-link></li>
@@ -90,7 +90,7 @@
       <li><router-link to="/selects">选择器</router-link></li>
       <li><router-link to="/cascader">级联选择器</router-link></li>
       <li><router-link to="/menu">自定义菜单</router-link></li>
-    </ul->
+    </ul>
   </div>
 </template>
 

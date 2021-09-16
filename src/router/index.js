@@ -129,7 +129,7 @@ export default new Router({
       name: 'cascader',
       component: cascader,
       meta: {
-        title: cascader
+        title: 'cascader'
       }
     },
     {
@@ -137,7 +137,7 @@ export default new Router({
       name: 'MyMenu',
       component: MyMenu,
       meta: {
-        title: MyMenu
+        title: 'menu'
       }
     }
   ]
