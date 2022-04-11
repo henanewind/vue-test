@@ -16,16 +16,21 @@ import Icons from '../components/Icons'
 import selects from '../components/selects'
 import cascader from '../components/cascader'
 import MyMenu from '@/components/MyMenu'
+import VideoPlayer from '@/components/VideoPlayer'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history', // 路由默认采用 hash 模式，切换为history 消除url后面的 #
+  scrollBehavior: () => ({ y: 0 }),
   routes: [
     {
       path: '/',
       name: 'Navigate',
-      component: Navigate
+      components: {
+        topView: Navigate,
+        bottomView: CountComponent
+      }
     },
     {
       path: '/user/:id',
@@ -138,6 +143,14 @@ export default new Router({
       component: MyMenu,
       meta: {
         title: 'menu'
+      }
+    },
+    {
+      path: '/video',
+      name: 'VideoPlayer',
+      component: VideoPlayer,
+      meta: {
+        title: 'video'
       }
     }
   ]

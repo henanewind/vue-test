@@ -66,7 +66,6 @@ export default {
     handleClose (done) {
       this.$confirm('确认关闭？')
         .then(() => {
-          debugger
           console.log('关闭。')
           done()
         })

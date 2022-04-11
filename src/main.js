@@ -12,7 +12,7 @@ import 'nprogress/nprogress.css' // progress bar style
 import Element from 'element-ui'
 // 引入element-ui的样式文件
 import 'element-ui/lib/theme-chalk/index.css'
-import {WaitFor} from '@/api/global'
+// import {WaitFor} from '@/api/global'
 // 通过这个命令使所有的element-ui标签(<el-*></el-*>)可被解析
 Vue.use(Element)
 

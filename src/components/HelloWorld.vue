@@ -89,7 +89,9 @@
       <li><router-link to="/icon">图标</router-link></li>
       <li><router-link to="/selects">选择器</router-link></li>
       <li><router-link to="/cascader">级联选择器</router-link></li>
-      <li><router-link to="/menu">自定义菜单</router-link></li>
+<!--      <li><router-link to="/menu">自定义菜单</router-link></li>-->
+      <li><router-link :to="{name: 'MyMenu'}">自定义菜单</router-link></li>
+      <li><router-link to="/video">播放flv视频</router-link></li>
     </ul>
   </div>
 </template>
